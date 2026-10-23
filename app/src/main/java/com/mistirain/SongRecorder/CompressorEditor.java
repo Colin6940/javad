@@ -113,7 +113,7 @@ public class CompressorEditor extends EffectEditorView {
     }
 
     @Override
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
         post(meterTick);
     }

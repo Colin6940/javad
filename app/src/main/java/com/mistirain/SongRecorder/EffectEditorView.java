@@ -30,7 +30,7 @@ public abstract class EffectEditorView extends NestedScrollView implements AppAu
     }
 
     @Override
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
         AppAudioRuntime.addEffectRevisionListener(this);
         refresh();
