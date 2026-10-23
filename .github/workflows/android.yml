@@ -6,6 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,7 +27,24 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build debug APK and run unit tests
-        run: ./gradlew --no-configuration-cache assembleDebug testDebugUnitTest --stacktrace
+        run: |
+          set -o pipefail
+          ./gradlew --no-configuration-cache assembleDebug testDebugUnitTest --console=plain 2>&1 | tee build.log
+
+      - name: Publish build log to ci-logs branch
+        if: always()
+        run: |
+          cp build.log /tmp/build.log || echo "no log" > /tmp/build.log
+          git config user.name "ci-bot"
+          git config user.email "ci-bot@users.noreply.github.com"
+          git fetch origin ci-logs || true
+          git switch --orphan ci-logs-tmp
+          git rm -rf --cached . > /dev/null 2>&1 || true
+          cp /tmp/build.log build.log
+          echo "${{ github.sha }} ${{ job.status }}" > status.txt
+          git add -f build.log status.txt
+          git commit -m "CI log for ${{ github.sha }}"
+          git push -f origin ci-logs-tmp:ci-logs
 
       - name: Upload debug APK
         if: success()
