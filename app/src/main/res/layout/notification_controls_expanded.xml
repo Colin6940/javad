@@ -1,0 +1,220 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="6dp">
+
+    <TextView
+        android:id="@+id/notification_status"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="알림 녹음 대기"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/action_primary"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="3dp">
+            <ImageView
+                android:id="@+id/action_primary_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="녹음 시작 또는 정지"
+                android:src="@drawable/ic_record_circle" />
+            <TextView
+                android:id="@+id/action_primary_label"
+                style="@style/TextAppearance.Compat.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:maxLines="1"
+                android:text="녹음 시작"
+                android:textSize="11sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/action_secondary"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="3dp">
+            <ImageView
+                android:id="@+id/action_secondary_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="녹음 취소 또는 녹음 초기화"
+                android:src="@drawable/ic_record_stop" />
+            <TextView
+                android:id="@+id/action_secondary_label"
+                style="@style/TextAppearance.Compat.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:maxLines="1"
+                android:text="중단"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/review_progress_row"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/review_position_time"
+            style="@style/TextAppearance.Compat.Notification.Info"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|start"
+            android:maxLines="1"
+            android:text="0:00"
+            android:textSize="10sp" />
+
+        <ProgressBar
+            android:id="@+id/review_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:max="1000"
+            android:progress="0"
+            android:indeterminate="false" />
+
+        <TextView
+            android:id="@+id/review_duration_time"
+            style="@style/TextAppearance.Compat.Notification.Info"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:maxLines="1"
+            android:text="0:00"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/effect_gate"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="게이트 OFF"
+            android:textSize="9sp" />
+        <TextView
+            android:id="@+id/effect_eq"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="EQ OFF"
+            android:textSize="9sp" />
+        <TextView
+            android:id="@+id/effect_compressor"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="컴프 OFF"
+            android:textSize="9sp" />
+        <TextView
+            android:id="@+id/effect_reverb"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="리버브 OFF"
+            android:textSize="9sp" />
+        <TextView
+            android:id="@+id/effect_reverb_eq"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="리버브 EQ"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/review_actions_row"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/review_save"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:text="저장"
+            android:textSize="10sp" />
+        <TextView
+            android:id="@+id/review_share"
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/notification_control_bg"
+                    android:gravity="center"
+            android:text="카톡 공유"
+            android:textSize="10sp" />
+    </LinearLayout>
+</LinearLayout>

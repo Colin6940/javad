@@ -1,0 +1,29 @@
+[versions]
+agp = "9.4.1"
+coreKtx = "1.19.1"
+junit = "4.13.2"
+junitVersion = "1.3.0"
+espressoCore = "3.7.0"
+activity = "1.13.0"
+appcompat = "1.7.1"
+material = "1.13.0"
+drawerlayout = "1.2.0"
+viewpager2 = "1.1.0"
+recyclerview = "1.4.0"
+ffmpeg-kit = "8.1.9"
+
+[libraries]
+androidx-core = { group = "androidx.core", name = "core", version.ref = "coreKtx" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-drawerlayout = { group = "androidx.drawerlayout", name = "drawerlayout", version.ref = "drawerlayout" }
+androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+ffmpeg-kit-full = { module = "dev.ffmpegkit-maintained:ffmpeg-kit-full", version.ref = "ffmpeg-kit" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
