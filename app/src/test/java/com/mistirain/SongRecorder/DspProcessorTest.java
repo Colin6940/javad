@@ -17,7 +17,9 @@ public class DspProcessorTest {
     @Test
     public void resetStateClearsTheInputLevelMeter() {
         DspProcessor processor = new DspProcessor();
-        processor.processSample(0.5f);
+        // The level meter uses a 25 ms attack, so a single sample cannot lift it above -60 dB.
+        // Feed ~45 ms of signal so the meter clearly rises before testing the reset.
+        for (int i = 0; i < 2000; i++) processor.processSample(0.5f);
         assertTrue(processor.compInputLevelDb > -60f);
 
         processor.resetState();
